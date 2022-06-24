@@ -147,11 +147,12 @@ for child in api_root:
     ))
 
 API = "gles2"
+VERSION = 3.2
 enums_to_gen = []
 cmds_to_gen = []
 
 for feature in features:
-  if feature.api == API:
+  if feature.api == API and float(feature.number) <= VERSION:
     enums_to_gen.extend(feature.enums)
     cmds_to_gen.extend(feature.commands)
 
